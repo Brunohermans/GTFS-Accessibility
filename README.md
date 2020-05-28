@@ -18,6 +18,7 @@ The python packeges used can be found in the requirements.txt file. Important li
 
 # Usage
 1) Data.
+
 Start be retrieving the required data. In order to run this project, one needs at least a GTFSdataset and dataset from openstreetmap. 
 You can retrieve your GTFS dataset from google, use this link: [Click](https://code.google.com/archive/p/googletransitdatafeed/wikis/PublicFeeds.wiki)
 
