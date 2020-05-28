@@ -1,5 +1,5 @@
 # GTFS-Accessibility
-This project uses the network shape and locations of a GTFS dataset to calculate distances to common used facilities over roadnetwork and public transport network. The toolset used in this project is still in an experimental phase. Many of to codebase should be optimized for different systems, some code should still be generalized to functions. 
+This project uses the network shape and locations of a GTFS dataset to calculate distances to common used facilities over roadnetwork and public transport network. The toolset used in this project is still in an experimental phase. Many of to codebase should be optimized for different systems, some code should still be generalized to functions. The project uses several python libraries, but also QGIS and Arcgis Pro (both required).
 
 # Purpose
 This package can be used to cluster houses, and thus generate multiple K-means clusters. All of these K-means clusters, show similair levels of Accessibility. For example Cluster one has an average distance of 300 meters to the closest supermarket, and 500 meters to the closest Supermarket. 
@@ -14,6 +14,8 @@ A preview:
 # Dependencies
 The toolset uses the functions from the QGIS QNEAT3 plugin to calculate the OD-matrices in long format. One can implement these function into a python project, this was not done for this project untill today. This project used QNEAT3 in QGIS manually. A link to QNEAT3: [Click here](https://root676.github.io/)
 
+Besides QGIS, the project also uses a buildin algorithm from Arcgis Pro. Arcgis Pro contains an algorithm to transform the shapes that a GTFS dataset contains, to an ESRI shapefile. You will need this ESRI shapefile in the analysis/python scripts. 
+
 The python packeges used can be found in the requirements.txt file. Important libraries are geopandas, pandas, scikitlearn and their dependencies. For visualisation kepler.gl is used. 
 
 # Usage
@@ -26,4 +28,9 @@ You can retrieve your openstreetmap data (for your area of analysis) [here](http
 
 If you want to run my code, you also need a small dataset from CBS. [Clik here](https://www.cbs.nl/nl-nl/dossier/nederland-regionaal/geografische-data/wijk-en-buurtkaart-2018) This dataset is only used to clip the openstreetmap data. 
 
-2) Preprocessing.
+2) Preprocessing GTFS
+
+In order to start the preprocessing process, you will need the GTFS.ipynb jupyter notebook. This notebook makes sure that you can extract the data you would like to analyse. In this project, the service network of HTM (a public transport carrier) was analyzed. 
+This script makes sure than only the stops of HTM will be analysed, and not all stops and shapes in the GTFS dataset.
+
+
