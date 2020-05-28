@@ -5,6 +5,3 @@ This project uses the network shape and locations of a GTFS dataset to calculate
 
 https://brunohermans.github.io/GTFS-Accessibility/first_results1.html
 
-
-<iframe width="623.5" height= "385" seamless frameborder = "0" src="https://brunohermans.github.io/GTFS-Accessibility/first_results1.html">
-</iframe>
