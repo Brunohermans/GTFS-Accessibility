@@ -49,7 +49,7 @@ Thirdly, calculate matrices between all stops and all points of interests you wa
 
 5) Clustering accesibility 
 
-Using the 'facilites.ipynb', the houses were clustered based on the calculated distances calculated in step 4. 
+Using the 'facilites.ipynb', the houses were clustered based on the calculated distances calculated in step 4. The script 'Generalize_Results_To_All houses.ipynb' was used to generalize the results to all houses in the hague.
 
 6) Displaying results
 
