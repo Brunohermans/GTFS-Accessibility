@@ -35,6 +35,24 @@ This script makes sure than only the stops of HTM will be analysed, and not all 
 
 3) Clipping open street map data
 
-In this step you'll need the data of open streetmap. If you want to use the points of interests dataset as destinations, you should use the multipoint to point script (Multipoint to Point.ipynb). This makes the open streetmap data suitable for the Qneat3 algorithm you'll need in further steps. As origins, we will use the polygon houses dataset of openstreetmap. Now you'll need the 'Filter to the Hague.ipynb' notebook. This notebook will calculate the centroids of all buildings in the selected area (which is why I used the CBS dataset), after that it will cluster all obtained points with the Kmeans algorithm on the longtitude and lattitude attributes. This makes sure we will be able to reduce the size of the dataset. Once all is clustered, we use the houses closest to the centres of the clusters. These are the houses we will use to calculate the distances. 
+In this step you'll need the data of open streetmap. If you want to use the points of interests dataset as destinations, you should use the multipoint to point script (Multipoint to Point.ipynb). This makes the open streetmap data suitable for the Qneat3 algorithm you'll need in further steps. As origins, we will use the polygon houses dataset of openstreetmap. Now you'll need the 'Filter to the Hague.ipynb' notebook. This notebook will calculate the centroids of all buildings in the selected area (which is why I used the CBS dataset), after that it will cluster all obtained points with the Kmeans algorithm on the longtitude and lattitude attributes. This makes sure we will be able to reduce the size of the dataset. Once all is clustered, we use the houses closest to the centres of the clusters. These are the houses we will use to calculate the distances. You will also need to clip the roadnetwork to the area of analysis. 
+
+4) Calculating OD-matrices 
+
+In this step you''ll need Qgis with the Qneat3 plugin, we will use this algorithm to calculate distances. You will need to calculate a number of OD-matrices. 
+
+Firstly, determine an origin destination matrix between all stops (stops.txt) using the converted shapes.txt file. Shapes.txt will be your networkdataset. 
+
+Secondly, calculate all distances between all clustered houses (see step 3) to all stops over the road network that you obtained from open street map. The notebook 'OD-matrix after Kmeans.ipynb' is used to determine the closest house per stop. 
+
+Thirdly, calculate matrices between all stops and all points of interests you want to analyse (Use Multipoint to Point.ipynb to make sure that QNEAT3 will accept your data). In my case I used two Scripts to determine the distances over the road as well as the public transport network to the closest points of interests. For the supermarkets I used OD-matrix stops-Supermarkets1.ipynb and for the other facilities I used facilites.ipynb
+
+5) Clustering accesibility 
+
+Using the 'facilites.ipynb', the houses were clustered based on the calculated distances calculated in step 4. 
+
+6) Displaying results
+
+Use the kepler.gl library to make a nice visualisation of your results. A link to this library is provided [here](https://kepler.gl/)
 
 
