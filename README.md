@@ -30,7 +30,11 @@ If you want to run my code, you also need a small dataset from CBS. [Clik here](
 
 2) Preprocessing GTFS
 
-In order to start the preprocessing process, you will need the GTFS.ipynb jupyter notebook. This notebook makes sure that you can extract the data you would like to analyse. In this project, the service network of HTM (a public transport carrier) was analyzed. 
-This script makes sure than only the stops of HTM will be analysed, and not all stops and shapes in the GTFS dataset.
+In order to start the preprocessing process, you will need the 'GTFS5.ipynb' jupyter notebook. This notebook makes sure that you can extract the data you would like to analyse. In this project, the service network of HTM (a public transport carrier) was analyzed. 
+This script makes sure than only the stops of HTM will be analysed, and not all stops and shapes in the GTFS dataset. This notebook was used to create two datasets: shapes.txt and stops.txt for HTM. Shapes.txt was converted to an ESRI shapefile, using the Arcgis PRO GTFS toolset. Stops.txt can be loaded into Qgis directly. 
+
+3) Clipping open street map data
+
+In this step you'll need the data of open streetmap. If you want to use the points of interests dataset as destinations, you should use the multipoint to point script (Multipoint to Point.ipynb). This makes the open streetmap data suitable for the Qneat3 algorithm you'll need in further steps. As origins, we will use the polygon houses dataset of openstreetmap. Now you'll need the 'Filter to the Hague.ipynb' notebook. This notebook will calculate the centroids of all buildings in the selected area (which is why I used the CBS dataset), after that it will cluster all obtained points with the Kmeans algorithm on the longtitude and lattitude attributes. This makes sure we will be able to reduce the size of the dataset. Once all is clustered, we use the houses closest to the centres of the clusters. These are the houses we will use to calculate the distances. 
 
 
