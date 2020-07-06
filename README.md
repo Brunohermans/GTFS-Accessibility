@@ -5,7 +5,7 @@ This project uses the network shape and locations of a GTFS dataset to calculate
 This collection of notebooks can be used to cluster houses, and thus generate multiple K-means clusters. All of these K-means clusters, show similair levels of Accessibility. For example Cluster one has an average distance of 300 meters to the closest supermarket, and 500 meters to the closest Supermarket. 
 
 # Results
-The results can be viewed by accessing this link: [Click Here](https://brunohermans.github.io/GTFS-Accessibility/first_results1.html)
+The results can be viewed by accessing this link: [Click Here](https://brunohermans.github.io/GTFS-Accessibility/final_map.html)
 
 A preview:
 
