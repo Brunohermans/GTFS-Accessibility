@@ -5,14 +5,14 @@ This project uses the network shape and locations of a GTFS dataset to calculate
 This collection of notebooks can be used to cluster houses, and thus generate multiple K-means clusters. All of these K-means clusters, show similair levels of Accessibility. For example Cluster one has an average distance of 300 meters to the closest supermarket, and 500 meters to the closest Supermarket. 
 
 # Results
-The results can be viewed by accessing this link: [Click here](https://brunohermans.github.io/GTFS-Accessibility/first_results1.html)
+The results can be viewed by accessing this link: [Click Here](https://brunohermans.github.io/GTFS-Accessibility/first_results1.html)
 
 A preview:
 
 ![Accesibility Levels](https://raw.githubusercontent.com/Brunohermans/GTFS-Accessibility/master/Preview%20Kepler.JPG)
 
 # Dependencies
-The toolset uses the functions from the QGIS QNEAT3 plugin to calculate the OD-matrices in long format. One can implement these function into a python project, this was not done for this project untill today. This project used QNEAT3 in QGIS manually. A link to QNEAT3: [Click here](https://root676.github.io/)
+The toolset uses the functions from the QGIS QNEAT3 plugin to calculate the OD-matrices in long format. One can implement these function into a python project, this was not done for this project untill today. This project used QNEAT3 in QGIS manually. A link to QNEAT3: [Click Here](https://root676.github.io/)
 
 Besides QGIS, the project also uses a buildin algorithm from Arcgis Pro. Arcgis Pro contains an algorithm to transform the shapes that a GTFS dataset contains, to an ESRI shapefile. You will need this ESRI shapefile in the analysis/python scripts. 
 
@@ -22,11 +22,11 @@ The python packeges used can be found in the requirements.txt file. Important li
 1) Data.
 
 Start be retrieving the required data. In order to run this project, one needs at least a GTFSdataset and dataset from openstreetmap. 
-You can retrieve your GTFS dataset from google, use this link: [Click](https://code.google.com/archive/p/googletransitdatafeed/wikis/PublicFeeds.wiki)
+You can retrieve your GTFS dataset from google, use this link: [Click Here](https://code.google.com/archive/p/googletransitdatafeed/wikis/PublicFeeds.wiki)
 
-You can retrieve your openstreetmap data (for your area of analysis) [here](https://download.geofabrik.de/)
+You can retrieve your openstreetmap data (for your area of analysis) [Click Here](https://download.geofabrik.de/)
 
-If you want to run my code, you also need a small dataset from CBS. [Clik here](https://www.cbs.nl/nl-nl/dossier/nederland-regionaal/geografische-data/wijk-en-buurtkaart-2018) This dataset is only used to clip the openstreetmap data. 
+If you want to run my code, you also need a small dataset from CBS. [Click Here](https://www.cbs.nl/nl-nl/dossier/nederland-regionaal/geografische-data/wijk-en-buurtkaart-2018) This dataset is only used to clip the openstreetmap data. 
 
 2) Preprocessing GTFS
 
@@ -47,11 +47,16 @@ Secondly, calculate all distances between all clustered houses (see step 3) to a
 
 Thirdly, calculate matrices between all stops and all points of interests you want to analyse (Use Multipoint to Point.ipynb to make sure that QNEAT3 will accept your data). In my case I used two Scripts to determine the distances over the road as well as the public transport network to the closest points of interests. For the supermarkets I used OD-matrix stops-Supermarkets1.ipynb and for the other facilities I used facilites.ipynb
 
-5) Clustering accesibility 
+5) Detecting outliers in Qneat3 output. 
+
+In this repository, an outlier detection script for Qneat3 is included as well. It compares the minimum distance with the maximum distance from the same origin. In case the Qneat3 algorithm fails (Which might be fixed by the time you're reading this), this script will help you to extract the errors. 
+
+6) Clustering accesibility 
 
 Using the 'Kmeans elbow 2.ipynb' script, the houses were clustered based on the calculated distances calculated in step 4. This script was also used to generate some histograms, the elbow plot for determining K, and some descriptive statistics. The script 'Generalize_Results_To_All houses.ipynb' was used to generalize the results to all houses in The Hague.
 
-6) Displaying results
+
+7) Displaying results
 
 Use the kepler.gl library to make a nice visualisation of your results. A link to this library is provided [here](https://kepler.gl/)
 
